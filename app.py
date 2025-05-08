@@ -7,8 +7,8 @@ import uuid
 from pydub import AudioSegment
 import os
 
-st.set_page_config(page_title="🔐 Sound Cipher", layout="centered")
-st.title("🔐 Sound Cipher - הצפנה קולית")
+st.set_page_config(page_title="🔐 SilentCipher", layout="centered")
+st.title("🔐 SilentCipher - הצפנה קולית")
 
 # --- עיצוב ---
 st.markdown("""
