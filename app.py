@@ -39,7 +39,7 @@ def encrypt_message_on_audio(input_wav, output_wav, message, key=300):
             break
         ascii_val = ord(char)
         seconds = int(time_array[index]) % 60
-        new_amplitude = ascii_val - seconds
+        new_amplitude = ascii_val - seconds + (data[index-1]
         data[int(index)] = new_amplitude
 
     data = np.clip(data, -32768, 32767).astype(np.int16)
@@ -60,7 +60,7 @@ def decrypt_message_from_audio(input_wav, key=300):
     for index in range(0, len(data), step):
         seconds = int(time_array[index]) % 60
         amplitude = data[int(index)]
-        ascii_val = round(amplitude + seconds)
+        ascii_val = round(amplitude + seconds - (data[index-1])
         if 32 <= ascii_val <= 126:
             message += chr(ascii_val)
         else:
