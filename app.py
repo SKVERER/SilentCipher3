@@ -23,7 +23,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-def encrypt_message_on_audio(input_wav, output_wav, message, key=defult_key):
+def encrypt_message_on_audio(input_wav, output_wav, message, key=default_key):
     sample_rate, data = wavfile.read(input_wav)
     if len(data.shape) > 1:
         data = data[:, 0]
@@ -46,7 +46,7 @@ def encrypt_message_on_audio(input_wav, output_wav, message, key=defult_key):
     wavfile.write(output_wav, sample_rate, data)
     return output_wav
 
-def decrypt_message_from_audio(input_wav, key=defult_key):
+def decrypt_message_from_audio(input_wav, key=default_key):
     sample_rate, data = wavfile.read(input_wav)
     if len(data.shape) > 1:
         data = data[:, 0]
@@ -82,7 +82,7 @@ if uploaded_file:
 
 message = st.text_input("💬 מסר להצפנה")
 key_input = st.text_input("מפתח הצפנה (אופציונלי; מומלץ להגברת האבטחה)", max_chars=4)
-key = int(key_input) if key_input.isdigit() else defult_key
+key = int(key_input) if key_input.isdigit() else default_key
 
 if st.button("🔐 הצפן ושלח"):
     if not input_wav_path or not message:
