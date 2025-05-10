@@ -23,6 +23,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+default_key = int(os.getenv("DEFAULT_KEY"))
+
 def encrypt_message_on_audio(input_wav, output_wav, message, key=default_key):
     sample_rate, data = wavfile.read(input_wav)
     if len(data.shape) > 1:
